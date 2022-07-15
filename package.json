@@ -2,16 +2,7 @@
   "name": "nextjs-tailwindcss-template",
   "description": "Next.js starter template with Tailwind CSS.",
   "version": "0.0.0",
-  "author": {
-    "name": "Noel Earvin Piamonte",
-    "email": "earvin.piamonte@gmail.com",
-    "url": "https://earvinpiamonte.com"
-  },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/earvinpiamonte/nextjs-tailwindcss-template.git"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
