@@ -1,6 +1,26 @@
 version: 2.1
 
 jobs:
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: npm i -g vercel
+
+      - run:
+          name: Setup Vercel Config
+          command: |
+            mkdir .vercel
+            echo '{"projectId":"prj_T7OOF7ZEEhNbArPgS57GCT4oKamq","orgId":"team_IL2HBSpEvJkAbr2qCxSeRvHT"}' > .vercel/project.json
+
+      - run:
+          name: Deploy
+          command: vercel deploy --token=$VERCEL_TOKEN
+
   build-test-lint:
     docker:
       - image: cimg/node:17.9.1
@@ -33,3 +53,11 @@ workflows:
   build-test:
     jobs:
       - build-test-lint
+      - deploy:
+          context:
+            - dev-deploy
+          filters:
+            branches:
+              only: development
+          requires:
+            - build-test-lint
