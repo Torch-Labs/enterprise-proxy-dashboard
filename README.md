@@ -2,7 +2,15 @@
 
 Hosted Url: https://enterprise-proxy-dashboard.vercel.app/dashboard/home
 
-## Run development server
+## Local Development
+
+Install dependancies:
+
+```
+yarn
+```
+
+Run locally:
 
 ```
 yarn dev
