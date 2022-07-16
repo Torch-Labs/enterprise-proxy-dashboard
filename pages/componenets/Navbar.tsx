@@ -5,8 +5,8 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   return (
-    <header className="flex justify-between items-start bg-tl-main p-4">
-      <div className="flex w-3/4 h-10 items-center justify-start p-6">
+    <header className="flex justify-between items-start bg-tl-main p-2">
+      <div className="flex w-3/4 h-10 items-center justify-start pl-5 pt-6">
         <input
           type="text"
           className="bg-tl-paper align-middle text-white rounded-md border-none	w-full"

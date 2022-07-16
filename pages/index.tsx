@@ -12,7 +12,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="prose prose-blue mx-auto">
             <h1>{name}</h1>
-            <p>Enterprise Proxy Dashboard</p>
+            {/* <p>Enterprise Proxy Dashboard</p> */}
           </div>
         </div>
       </section>

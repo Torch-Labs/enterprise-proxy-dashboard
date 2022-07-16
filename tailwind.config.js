@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         "tl-main": "#161824",
         "tl-paper": "#21222D",
+        "tl-secondary": {
+          100: "#fca69d",
+          700: "#FF6D5C",
+        },
       },
     },
   },
