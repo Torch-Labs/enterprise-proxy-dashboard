@@ -14,8 +14,10 @@ const home = () => {
   );
 };
 
-home.getLayout = (page: React.ReactNode) => (
-  <DashboardLayout>{page}</DashboardLayout>
+home.getLayout = (page: React.ReactNode, Auth: typeof React.Component) => (
+  <Auth>
+    <DashboardLayout>{page}</DashboardLayout>
+  </Auth>
 );
 
 export default home;
