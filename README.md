@@ -8,6 +8,8 @@ This project template aims to simplify the setup of Tailwind CSS on your Next.js
 yarn dev
 ```
 
+`.env.local` file: https://drive.google.com/file/d/1xzv_yPjIaIUDrxTL0MPhbmzqbDsNLotj/view?usp=sharing
+
 ## Deploy with Vercel
 
 Deploy this template using Vercel:
