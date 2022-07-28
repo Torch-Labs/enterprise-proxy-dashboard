@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
+import Link from "next/link";
 
 const Navbar = () => {
   const [profileCliked, setProfileClicked] = React.useState(false);
   const { user } = useUser();
-
-  console.log(user);
 
   return (
     <header className="flex justify-between items-start bg-tl-main p-2">
@@ -50,12 +49,12 @@ const Navbar = () => {
         {profileCliked && (
           <div className="absolute right-0 w-full mt-14 mr-4 origin-top-right rounded-md shadow-lg md:w-48">
             <div className="py-2 bg-tl-main text-white text-sm rounded-sm border border-tl-paper shadow-sm">
-              <a
+              <Link
                 className="block px-4 py-2 mt-2 text-sm bg-tl-main md:mt-0 focus:text-gray-900 hover:bg-tl-paper focus:bg-gray-200 focus:outline-none focus:shadow-outline w-full"
                 href="/api/auth/logout"
               >
                 Logout
-              </a>
+              </Link>
             </div>
           </div>
         )}

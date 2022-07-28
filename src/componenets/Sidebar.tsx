@@ -1,32 +1,19 @@
-import {
-  faBagShopping,
-  faCartShopping,
-  faChartLine,
-  faChartSimple,
-  faClock,
-  faGear,
-  faHouse,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-interface Props {}
+export type SidebarItems = {
+  name: string;
+  icon: IconDefinition;
+};
 
-const items = [
-  { name: "Home", icon: faHouse },
-  { name: "Profile", icon: faUser },
-  { name: "Dashboard", icon: faChartSimple },
-  { name: "Order", icon: faCartShopping },
-  { name: "API Access", icon: faBagShopping },
-  { name: "Sales Report", icon: faChartLine },
-  { name: "Settings", icon: faGear },
-  { name: "History", icon: faClock },
-];
+interface Props {
+  sidebarItems: SidebarItems[];
+}
 
-const Sidebar: React.FC<Props> = () => {
+const Sidebar: React.FC<Props> = ({ sidebarItems }) => {
   const router = useRouter();
 
   return (
@@ -38,14 +25,14 @@ const Sidebar: React.FC<Props> = () => {
               <Image src="/logo.png" alt="logo" height={65} width={70} />
               <div className="font-bold">Torch</div>&nbsp;Labs
             </div>
-            {items.map((item) => {
+            {sidebarItems.map((item) => {
               const route = `/dashboard/${item.name
                 .toLowerCase()
                 .replaceAll(" ", "-")}`;
               const isActive = router.pathname === route;
               const baseStyle =
                 "flex items-center p-3 text-base font-normal text-gray-900 rounded-lg dark:text-white font-bold";
-              const inactiveStyle = `${baseStyle} hover:bg-tl-secondary-100 hover:bg-tl-secondary-700`;
+              const inactiveStyle = `${baseStyle} hover:bg-tl-secondary-100 hover:text-black`;
               const activeStyle = `${baseStyle} bg-tl-secondary bg-tl-secondary-700`;
               return (
                 <li key={item.name} className="p-2">
@@ -54,14 +41,10 @@ const Sidebar: React.FC<Props> = () => {
                     className={isActive ? activeStyle : inactiveStyle}
                   >
                     <FontAwesomeIcon
-                      className={isActive ? "text-black" : "text-white"}
+                      className={isActive ? "text-black" : ""}
                       icon={item.icon}
                     />
-                    <span
-                      className={`ml-3 ${
-                        isActive ? "text-black" : "text-white"
-                      }`}
-                    >
+                    <span className={`ml-3 ${isActive ? "text-black" : ""}`}>
                       {item.name}
                     </span>
                   </a>
